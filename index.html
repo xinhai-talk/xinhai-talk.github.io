@@ -4,14 +4,883 @@
     <meta charset="UTF-8">
     <title>Awesome-pyecharts</title>
             <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+       		 <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/world.js"></script>
+        	<style type="text/css">
+        	html {
+			    font-family: sans-serif;
+			    -webkit-text-size-adjust: 100%;
+			    -ms-text-size-adjust: 100%;
+			}
+			body{
+margin: 0px;
+padding: 0px;
+}
+        	
+        	#header {
 
+    background-image: url(https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=277237570,297498983&fm=26&gp=0.jpg);
+    background-size: cover;
+    padding: 60px 80px;
+    position: relative;
+    box-shadow: 0px 3px 3px rgba(20, 20, 20, 0.3) inset;
+}
+#footer {
+    text-align: center;
+
+    color: white;
+    background-color: #333;
+    padding: 30px;
+    font-size: 15px;
+}
+
+	#chart{
+
+		padding: 60px 80px;
+
+
+}
+	
+        </style>
+
+	
 </head>
 <body>
-        <div id="403d78da682e4250b59713f4360175a1" style="width:900px; height:500px;"></div>
+<div id="header">
+      
+        <h1>中国上映电影<span style="font-family:JetLinkMediumOldStamp451548;color:#fff;position:relative;top:-1px;font-size:35px;"><span style="margin-left:10px;margin-right:5px;">数据</span>可视化</span></h1>
+        <p>电影原始数据来自中国票房数据库，<a href="http://movie.douban.com/" target="_blank">豆瓣电影</a>，使用python的<a href="https://docs.python.org/2/library/urllib2.html" target="_blank">Requests</a>包以及使用相关代理的方式<span class="em">爬取</span>数据、使用<a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank">BeautifulSoup</a>、正则表达式re、lxml包完成<span class="em">解析</span>，通过MongoDB数据库爬取的电影数据进行存储，利用对MongoDB的增，删，改，查等操作对数据进行<span class="em">预处理</span>和<span class="em">清洗</span>。</p>
+        <p>最终一共获取了<span class="em">3697</span>条电影票房数据，3327条豆瓣电影数据，每条记录包含以下<span class="em">15</span>个字段：电影ID、电影名、链接、缩略图、评分、导演、演员、类型、上映国家、语言、上映时间、时长、票房信息。</p>
+        <p>在此基础上，使用<a href="http://echarts.baidu.com/" target="_blank">PyEcharts包</a>调用百度Echarts可视化库进行简单的数据可视化，从而完整地展示网络上电影数据<span class="em">采集</span>、<span class="em">存储</span>、<span class="em">处理</span>和<span class="em">使用</span>四个环节所涉及的技术链。</p>
+    </div>
+
+
+<!--  以上为不可修改部分-->
+
+<div id="chart">
+        <div id="9b2edca8c1a1418d8338b5b584e77d03" style="width: 900px; height: 500px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;" _echarts_instance_="ec_1558268062722"><div style="position: relative; overflow: hidden; width: 900px; height: 500px; padding: 0px; margin: 0px; border-width: 0px; cursor: pointer;"><canvas data-zr-dom-id="zr_0" width="900" height="500" style="position: absolute; left: 0px; top: 0px; width: 900px; height: 500px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 432px; top: 350px;">商家A<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#c23531;"></span>金毛: 111</div></div>
     <script>
-        var chart_403d78da682e4250b59713f4360175a1 = echarts.init(
-            document.getElementById('403d78da682e4250b59713f4360175a1'), 'white', {renderer: 'canvas'});
-        var option_403d78da682e4250b59713f4360175a1 = {
+        var chart_9b2edca8c1a1418d8338b5b584e77d03 = echarts.init(
+            document.getElementById('9b2edca8c1a1418d8338b5b584e77d03'), 'white', {renderer: 'canvas'});
+        var option_9b2edca8c1a1418d8338b5b584e77d03 = {
+    "baseOption": {
+        "series": [
+            {
+                "type": "bar",
+                "name": "\u5546\u5bb6A",
+                "data": [
+                    57,
+                    24,
+                    34,
+                    49,
+                    42,
+                    52,
+                    41
+                ],
+                "barCategoryGap": "20%",
+                "label": {
+                    "show": true,
+                    "position": "top",
+                    "fontSize": 12
+                }
+            },
+            {
+                "type": "bar",
+                "name": "\u5546\u5bb6B",
+                "data": [
+                    20,
+                    73,
+                    116,
+                    37,
+                    113,
+                    37,
+                    109
+                ],
+                "barCategoryGap": "20%",
+                "label": {
+                    "show": true,
+                    "position": "top",
+                    "fontSize": 12
+                }
+            }
+        ],
+        "timeline": {
+            "axisType": "category",
+            "autoPlay": false,
+            "loop": true,
+            "rewind": false,
+            "show": true,
+            "bottom": "-5px",
+            "data": [
+                "2015\u5e74",
+                "2016\u5e74",
+                "2017\u5e74",
+                "2018\u5e74",
+                "2019\u5e74"
+            ]
+        },
+        "xAxis": [
+            {
+                "show": true,
+                "scale": false,
+                "nameLocation": "end",
+                "nameGap": 15,
+                "gridIndex": 0,
+                "inverse": false,
+                "splitLine": {
+                    "show": false,
+                    "lineStyle": {
+                        "width": 1,
+                        "opacity": 1,
+                        "curveness": 0,
+                        "type": "solid"
+                    }
+                },
+                "data": [
+                    "\u54c8\u58eb\u5947",
+                    "\u8428\u6469\u8036",
+                    "\u6cf0\u8fea",
+                    "\u91d1\u6bdb",
+                    "\u7267\u7f8a\u72ac",
+                    "\u5409\u5a03\u5a03",
+                    "\u67ef\u57fa"
+                ]
+            }
+        ],
+        "yAxis": [
+            {
+                "show": true,
+                "scale": false,
+                "nameLocation": "end",
+                "nameGap": 15,
+                "gridIndex": 0,
+                "inverse": false,
+                "splitLine": {
+                    "show": false,
+                    "lineStyle": {
+                        "width": 1,
+                        "opacity": 1,
+                        "curveness": 0,
+                        "type": "solid"
+                    }
+                }
+            }
+        ]
+    },
+    "options": [
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u5546\u5bb6A",
+                        "\u5546\u5bb6B"
+                    ],
+                    "selected": {
+                        "\u5546\u5bb6A": true,
+                        "\u5546\u5bb6B": true
+                    },
+                    "show": true
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        78,
+                        131,
+                        43,
+                        111,
+                        72,
+                        76,
+                        81
+                    ]
+                },
+                {
+                    "data": [
+                        92,
+                        27,
+                        111,
+                        24,
+                        79,
+                        109,
+                        61
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u67d0\u5546\u5e972015\u5e74\u8425\u4e1a\u989d"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u5546\u5bb6A",
+                        "\u5546\u5bb6B"
+                    ],
+                    "selected": {
+                        "\u5546\u5bb6A": true,
+                        "\u5546\u5bb6B": true
+                    },
+                    "show": true
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        90,
+                        47,
+                        127,
+                        78,
+                        136,
+                        127,
+                        34
+                    ]
+                },
+                {
+                    "data": [
+                        63,
+                        129,
+                        70,
+                        49,
+                        146,
+                        71,
+                        78
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u67d0\u5546\u5e972016\u5e74\u8425\u4e1a\u989d"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u5546\u5bb6A",
+                        "\u5546\u5bb6B"
+                    ],
+                    "selected": {
+                        "\u5546\u5bb6A": true,
+                        "\u5546\u5bb6B": true
+                    },
+                    "show": true
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        107,
+                        136,
+                        75,
+                        22,
+                        85,
+                        51,
+                        112
+                    ]
+                },
+                {
+                    "data": [
+                        104,
+                        50,
+                        91,
+                        61,
+                        93,
+                        54,
+                        140
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u67d0\u5546\u5e972017\u5e74\u8425\u4e1a\u989d"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u5546\u5bb6A",
+                        "\u5546\u5bb6B"
+                    ],
+                    "selected": {
+                        "\u5546\u5bb6A": true,
+                        "\u5546\u5bb6B": true
+                    },
+                    "show": true
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        115,
+                        59,
+                        77,
+                        76,
+                        22,
+                        143,
+                        133
+                    ]
+                },
+                {
+                    "data": [
+                        150,
+                        103,
+                        42,
+                        113,
+                        86,
+                        89,
+                        146
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u67d0\u5546\u5e972018\u5e74\u8425\u4e1a\u989d"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u5546\u5bb6A",
+                        "\u5546\u5bb6B"
+                    ],
+                    "selected": {
+                        "\u5546\u5bb6A": true,
+                        "\u5546\u5bb6B": true
+                    },
+                    "show": true
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        57,
+                        24,
+                        34,
+                        49,
+                        42,
+                        52,
+                        41
+                    ]
+                },
+                {
+                    "data": [
+                        20,
+                        73,
+                        116,
+                        37,
+                        113,
+                        37,
+                        109
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u67d0\u5546\u5e972019\u5e74\u8425\u4e1a\u989d"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
+        }
+    ]
+};
+        chart_9b2edca8c1a1418d8338b5b584e77d03.setOption(option_9b2edca8c1a1418d8338b5b584e77d03);
+    </script>
+<br> 
+</div>
+<div id="chart">
+       <div id="fa0e9aa284f547988560bf859cd24384" style="width: 900px; height: 500px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;" _echarts_instance_="ec_1558268062723"><div style="position: relative; overflow: hidden; width: 900px; height: 500px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="900" height="500" style="position: absolute; left: 0px; top: 0px; width: 900px; height: 500px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 509px; top: 140px;">商家A<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#c23531;"></span>草莓: 145</div></div>
+    <script>
+        var chart_fa0e9aa284f547988560bf859cd24384 = echarts.init(
+            document.getElementById('fa0e9aa284f547988560bf859cd24384'), 'white', {renderer: 'canvas'});
+        var option_fa0e9aa284f547988560bf859cd24384 = {
+    "baseOption": {
+        "series": [
+            {
+                "type": "pie",
+                "name": "\u5546\u5bb6A",
+                "data": [
+                    {
+                        "name": "\u8349\u8393",
+                        "value": 113
+                    },
+                    {
+                        "name": "\u8292\u679c",
+                        "value": 82
+                    },
+                    {
+                        "name": "\u8461\u8404",
+                        "value": 147
+                    },
+                    {
+                        "name": "\u96ea\u68a8",
+                        "value": 111
+                    },
+                    {
+                        "name": "\u897f\u74dc",
+                        "value": 86
+                    },
+                    {
+                        "name": "\u67e0\u6aac",
+                        "value": 110
+                    },
+                    {
+                        "name": "\u8f66\u5398\u5b50",
+                        "value": 109
+                    }
+                ],
+                "radius": [
+                    "30%",
+                    "55%"
+                ],
+                "center": [
+                    "50%",
+                    "50%"
+                ],
+                "roseType": "radius",
+                "label": {
+                    "show": true,
+                    "position": "top",
+                    "fontSize": 12
+                }
+            }
+        ],
+        "timeline": {
+            "axisType": "category",
+            "autoPlay": false,
+            "loop": true,
+            "rewind": false,
+            "show": true,
+            "bottom": "-5px",
+            "data": [
+                "2015\u5e74",
+                "2016\u5e74",
+                "2017\u5e74",
+                "2018\u5e74",
+                "2019\u5e74"
+            ]
+        }
+    },
+    "options": [
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u8349\u8393",
+                        "\u8292\u679c",
+                        "\u8461\u8404",
+                        "\u96ea\u68a8",
+                        "\u897f\u74dc",
+                        "\u67e0\u6aac",
+                        "\u8f66\u5398\u5b50"
+                    ],
+                    "selected": {},
+                    "show": true
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        {
+                            "name": "\u8349\u8393",
+                            "value": 145
+                        },
+                        {
+                            "name": "\u8292\u679c",
+                            "value": 105
+                        },
+                        {
+                            "name": "\u8461\u8404",
+                            "value": 126
+                        },
+                        {
+                            "name": "\u96ea\u68a8",
+                            "value": 66
+                        },
+                        {
+                            "name": "\u897f\u74dc",
+                            "value": 110
+                        },
+                        {
+                            "name": "\u67e0\u6aac",
+                            "value": 37
+                        },
+                        {
+                            "name": "\u8f66\u5398\u5b50",
+                            "value": 125
+                        }
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u67d0\u5546\u5e972015\u5e74\u8425\u4e1a\u989d"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u8349\u8393",
+                        "\u8292\u679c",
+                        "\u8461\u8404",
+                        "\u96ea\u68a8",
+                        "\u897f\u74dc",
+                        "\u67e0\u6aac",
+                        "\u8f66\u5398\u5b50"
+                    ],
+                    "selected": {},
+                    "show": true
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        {
+                            "name": "\u8349\u8393",
+                            "value": 62
+                        },
+                        {
+                            "name": "\u8292\u679c",
+                            "value": 137
+                        },
+                        {
+                            "name": "\u8461\u8404",
+                            "value": 90
+                        },
+                        {
+                            "name": "\u96ea\u68a8",
+                            "value": 88
+                        },
+                        {
+                            "name": "\u897f\u74dc",
+                            "value": 107
+                        },
+                        {
+                            "name": "\u67e0\u6aac",
+                            "value": 136
+                        },
+                        {
+                            "name": "\u8f66\u5398\u5b50",
+                            "value": 92
+                        }
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u67d0\u5546\u5e972016\u5e74\u8425\u4e1a\u989d"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u8349\u8393",
+                        "\u8292\u679c",
+                        "\u8461\u8404",
+                        "\u96ea\u68a8",
+                        "\u897f\u74dc",
+                        "\u67e0\u6aac",
+                        "\u8f66\u5398\u5b50"
+                    ],
+                    "selected": {},
+                    "show": true
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        {
+                            "name": "\u8349\u8393",
+                            "value": 38
+                        },
+                        {
+                            "name": "\u8292\u679c",
+                            "value": 61
+                        },
+                        {
+                            "name": "\u8461\u8404",
+                            "value": 75
+                        },
+                        {
+                            "name": "\u96ea\u68a8",
+                            "value": 136
+                        },
+                        {
+                            "name": "\u897f\u74dc",
+                            "value": 92
+                        },
+                        {
+                            "name": "\u67e0\u6aac",
+                            "value": 86
+                        },
+                        {
+                            "name": "\u8f66\u5398\u5b50",
+                            "value": 95
+                        }
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u67d0\u5546\u5e972017\u5e74\u8425\u4e1a\u989d"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u8349\u8393",
+                        "\u8292\u679c",
+                        "\u8461\u8404",
+                        "\u96ea\u68a8",
+                        "\u897f\u74dc",
+                        "\u67e0\u6aac",
+                        "\u8f66\u5398\u5b50"
+                    ],
+                    "selected": {},
+                    "show": true
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        {
+                            "name": "\u8349\u8393",
+                            "value": 125
+                        },
+                        {
+                            "name": "\u8292\u679c",
+                            "value": 44
+                        },
+                        {
+                            "name": "\u8461\u8404",
+                            "value": 75
+                        },
+                        {
+                            "name": "\u96ea\u68a8",
+                            "value": 74
+                        },
+                        {
+                            "name": "\u897f\u74dc",
+                            "value": 25
+                        },
+                        {
+                            "name": "\u67e0\u6aac",
+                            "value": 93
+                        },
+                        {
+                            "name": "\u8f66\u5398\u5b50",
+                            "value": 129
+                        }
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u67d0\u5546\u5e972018\u5e74\u8425\u4e1a\u989d"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "\u8349\u8393",
+                        "\u8292\u679c",
+                        "\u8461\u8404",
+                        "\u96ea\u68a8",
+                        "\u897f\u74dc",
+                        "\u67e0\u6aac",
+                        "\u8f66\u5398\u5b50"
+                    ],
+                    "selected": {},
+                    "show": true
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        {
+                            "name": "\u8349\u8393",
+                            "value": 113
+                        },
+                        {
+                            "name": "\u8292\u679c",
+                            "value": 82
+                        },
+                        {
+                            "name": "\u8461\u8404",
+                            "value": 147
+                        },
+                        {
+                            "name": "\u96ea\u68a8",
+                            "value": 111
+                        },
+                        {
+                            "name": "\u897f\u74dc",
+                            "value": 86
+                        },
+                        {
+                            "name": "\u67e0\u6aac",
+                            "value": 110
+                        },
+                        {
+                            "name": "\u8f66\u5398\u5b50",
+                            "value": 109
+                        }
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u67d0\u5546\u5e972019\u5e74\u8425\u4e1a\u989d"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
+        }
+    ]
+};
+        chart_fa0e9aa284f547988560bf859cd24384.setOption(option_fa0e9aa284f547988560bf859cd24384);
+    </script>
+<br>
+</div>
+
+<div id="chart">
+	
+	 <div id="fedefadfba5a4a45b552b180f323dd3e" style="width:900px; height:500px;"></div>
+    <script>
+        var chart_fedefadfba5a4a45b552b180f323dd3e = echarts.init(
+            document.getElementById('fedefadfba5a4a45b552b180f323dd3e'), 'white', {renderer: 'canvas'});
+        var option_fedefadfba5a4a45b552b180f323dd3e = {
     "color": [
         "#c23531",
         "#2f4554",
@@ -41,18 +910,18 @@
     "series": [
         {
             "type": "bar",
-            "name": "\u7535\u5f71\u7968\u623fTOP10",
+            "name": "\u7535\u5f71\u7968\u623fTOP10(\u4ebf)",
             "data": [
-                2421000000,
-                2426000000,
-                2527000000,
-                2649000000,
-                3075000000,
-                3371000000,
-                3390000000,
-                3622000000,
-                4615000000,
-                5639000000
+                24.26,
+                25.27,
+                26.49,
+                30.75,
+                33.71,
+                33.9,
+                36.22,
+                41.21,
+                46.18,
+                56.39
             ],
             "barCategoryGap": "20%",
             "label": {
@@ -71,10 +940,10 @@
     "legend": [
         {
             "data": [
-                "\u7535\u5f71\u7968\u623fTOP10"
+                "\u7535\u5f71\u7968\u623fTOP10(\u4ebf)"
             ],
             "selected": {
-                "\u7535\u5f71\u7968\u623fTOP10": true
+                "\u7535\u5f71\u7968\u623fTOP10(\u4ebf)": true
             },
             "show": true
         }
@@ -109,7 +978,6 @@
                 }
             },
             "data": [
-                "\u6349\u5996\u8bb0",
                 "\u901f\u5ea6\u4e0e\u6fc0\u60c57",
                 "\u897f\u8679\u5e02\u9996\u5bcc",
                 "\u901f\u5ea6\u4e0e\u6fc0\u60c58",
@@ -117,6 +985,7 @@
                 "\u5510\u4eba\u8857\u63a2\u68482",
                 "\u7f8e\u4eba\u9c7c",
                 "\u7ea2\u6d77\u884c\u52a8",
+                "\u590d\u4ec7\u8005\u8054\u76df4\uff1a\u7ec8\u5c40\u4e4b\u6218",
                 "\u6d41\u6d6a\u5730\u7403",
                 "\u6218\u72fc2"
             ]
@@ -147,7 +1016,20 @@
         }
     ]
 };
-        chart_403d78da682e4250b59713f4360175a1.setOption(option_403d78da682e4250b59713f4360175a1);
+        chart_fedefadfba5a4a45b552b180f323dd3e.setOption(option_fedefadfba5a4a45b552b180f323dd3e);
     </script>
-<br/></body>
+<br/>
+</div>
+
+
+
+
+
+
+<!--  以下为不可修改部分-->
+<div id="footer">
+        <p>Copyright © 2019 <a href="http://zhanghonglun.cn" target="_blank">郭新海</a>. All Rights Reserved.</p>
+    </div>
+
+</body>
 </html>
